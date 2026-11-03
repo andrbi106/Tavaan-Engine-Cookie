@@ -2,11 +2,35 @@
 
 declare(strict_types=1);
 
-/*
- * پیکربندی کوکی — DOC-042
+/*|--------------------------------------------------------------------------
+ | Cookie Engine Configuration
+ |--------------------------------------------------------------------------
+ |
+ | پیکربندی موتور cookie — همهٔ کلیدهای مستندشده در `docs/03-engines/cookie.md` بخش «پیکربندی».
+ |
+ |@see https://github.com/Derogaramin/Tavaan-Doc/blob/main/docs/03-engines/cookie.md
  */
 
 return [
-    // کوکی‌هایی که رمزنگاری نمی‌شوند (XSRF-TOKEN باید برای SPA خوانا باشد)
-    'except' => ['XSRF-TOKEN'],
+    /*| پیش‌فرض موتور (driver/store یا حالت فعال) */
+    'default' => env('COOKIE_DEFAULT', 'default'),
+
+    /*| کلید کش (در صورت استفاده) */
+    'prefix' => env('COOKIE_PREFIX', 'cookie:'),
+
+    /*| تنظیمات لاگ */
+    'log' => [
+        'channel' => env('COOKIE_LOG_CHANNEL', 'cookie'),
+    ],
+
+    /*| Facade */
+    'facade' => [
+        'name' => 'Cookie',
+        'accessor' => 'cookie',
+    ],
+
+    /*| سایر کلیدها (طبق مستندات) */
+    'options' => [
+        // TODO: کلیدهای اضافی طبق سند §۶ (پیکربندی)
+    ],
 ];
