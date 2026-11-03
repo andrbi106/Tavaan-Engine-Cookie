@@ -90,4 +90,37 @@ final class CookieServiceProvider
     public function boot(): void {}
     public function provides(): array { return [CookieJar::class, Cookie::class]; }
     public function getJar(): CookieJar { if ($this->jar === null) $this->register(); return $this->jar; }
+
+    /**
+     * forever
+     */
+    public function forever(/* ... */): mixed
+    {
+        // TODO: Implement per docs.
+        return null;
+    }
+    /**
+     * hasQueued
+     */
+    public function hasQueued(/* ... */): mixed
+    {
+        // TODO: Implement per docs.
+        return null;
+    }
+    /**
+     * queue
+     */
+    public function queue(/* ... */): mixed
+    {
+        // TODO: Implement per docs.
+        return null;
+    }
+    /**
+     * queued
+     */
+    public function queued(/* ... */): mixed
+    {
+        // TODO: Implement per docs.
+        return null;
+    }
 }
