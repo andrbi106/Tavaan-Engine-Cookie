@@ -94,28 +94,28 @@ final class CookieServiceProvider
     /**
      * forever
      */
-    public function forever(/* ... */): mixed
+    public function forever(string $key, mixed $value): self
     {
-        return null;
+        return true;
     }
     /**
      * hasQueued
      */
-    public function hasQueued(/* ... */): mixed
+    public function hasQueued()
     {
-        return $this->queued !== null && !empty($this->queued);
+        return null;
     }
     /**
      * queue
      */
-    public function queue(/* ... */): mixed
+    public function queue()
     {
         return null;
     }
     /**
      * queued
      */
-    public function queued(/* ... */): mixed
+    public function queued()
     {
         return null;
     }
