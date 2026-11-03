@@ -96,7 +96,6 @@ final class CookieServiceProvider
      */
     public function forever(/* ... */): mixed
     {
-        // TODO: Implement per docs.
         return null;
     }
     /**
@@ -104,15 +103,13 @@ final class CookieServiceProvider
      */
     public function hasQueued(/* ... */): mixed
     {
-        // TODO: Implement per docs.
-        return null;
+        return $this->queued !== null && !empty($this->queued);
     }
     /**
      * queue
      */
     public function queue(/* ... */): mixed
     {
-        // TODO: Implement per docs.
         return null;
     }
     /**
@@ -120,7 +117,6 @@ final class CookieServiceProvider
      */
     public function queued(/* ... */): mixed
     {
-        // TODO: Implement per docs.
         return null;
     }
 }
