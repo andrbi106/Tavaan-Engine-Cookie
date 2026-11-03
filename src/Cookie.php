@@ -96,27 +96,47 @@ final class CookieServiceProvider
      */
     public function forever(string $key, mixed $value): self
     {
-        return true;
+        $jar = $this->getJar();
+        $jar->set(Cookie::make($key, (string) $value, 525600)); // 1 year in minutes
+        return $this;
     }
     /**
      * hasQueued
      */
-    public function hasQueued()
+    public function hasQueued(string $key = null): bool
     {
-        return null;
+        $queued = $this->getJar()->getQueued();
+        if ($key === null) {
+            return count($queued) > 0;
+        }
+        foreach ($queued as $cookie) {
+            if ($cookie->name === $key) {
+                return true;
+            }
+        }
+        return false;
     }
     /**
      * queue
      */
-    public function queue()
+    public function queue(string $name, string $value, int $minutes = 0, string $path = '/', string $domain = '', bool $secure = false, bool $httpOnly = true): void
     {
-        return null;
+        $this->getJar()->set(Cookie::make($name, $value, $minutes, $path, $domain, $secure, $httpOnly));
     }
     /**
      * queued
      */
-    public function queued()
+    public function queued(string $key = null): array|\Tavaan\Engine\Http\Cookie\Cookie|null
     {
+        $queued = $this->getJar()->getQueued();
+        if ($key === null) {
+            return $queued;
+        }
+        foreach ($queued as $cookie) {
+            if ($cookie->name === $key) {
+                return $cookie;
+            }
+        }
         return null;
     }
 }
