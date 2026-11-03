@@ -61,7 +61,8 @@ final class CookieJar
 
     public function forget(string $name): self
     {
-        $this->set(Cookie::make($name, expires: -1));
+        // Create a cookie that immediately expires (negative minutes = past timestamp)
+        $this->set(Cookie::make($name, '', -1));
         unset($this->cookies[$name]);
         return $this;
     }
