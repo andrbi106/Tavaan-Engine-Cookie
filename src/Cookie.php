@@ -15,7 +15,7 @@ final class Cookie
         public readonly ?string $sameSite = 'Lax',
     ) {}
 
-    public static function make(string $name, string $value = '', int $minutes = 0, ...): self
+    public static function make(string $name, string $value = '', int $minutes = 0, string $path = '/', string $domain = '', bool $secure = false, bool $httpOnly = true): self
     {
         return new self($name, $value, $minutes > 0 ? time() + $minutes * 60 : 0);
     }
