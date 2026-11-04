@@ -27,5 +27,6 @@
     "accessor": "cookie"
   },
   "docs": "docs/03-engines/cookie.md",
-  "notes": "کد در engines/http/src/Cookie (namespace مطابق DOC-042)."
+  "notes": "کد در engines/http/src/Cookie (namespace مطابق DOC-042).",
+  "class": "Tavaan\\Engine\\Http\\Cookie\\CookieEngine"
 }
